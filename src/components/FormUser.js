@@ -9,7 +9,7 @@ import './FormUser.css'
 
 
     async function CadastroUser() {
-        if(name == "" || email === "" || senha === "" || cpf_cnpj==="") {
+        if(name === "" || email === "" || senha === "" || cpf_cnpj==="") {
             alert("Preencha todos os campos!")
             return
         } 
@@ -31,6 +31,7 @@ import './FormUser.css'
 
         if(api.ok){
             alert("Cadastro com sucesso !")
+            window.location.href = "http://localhost:3000/listar-user"
             return;
         }
         else {
