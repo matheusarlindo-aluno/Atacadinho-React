@@ -1,22 +1,22 @@
 import { useState } from 'react'
-import './Atualizar.css'
+import './FormUser.css'
+import { useParams } from 'react-router-dom'
+
+// function Onclick(){          
+//         window.location.href = "http://localhost:3000/atualizar?id="+id
+//     }
 
 function AtualizarUser() {
-    const [name, setNome] = useState('')
-    const [email, setEmail] = useState('')
-    const [senha, setPassword] = useState('')
-    const [cpf_cnpj, setCpf_cnpj] = useState('')
+    const {id} = useParams();
+    const [name, setNome] = useState('');
+    const [email, setEmail] = useState('');
+    const [senha, setPassword] = useState('');
+    const [cpf_cnpj, setCpf_cnpj] = useState('');
 
 
-    async function AtualizarUser() {
-        if(name === "" || email === "" || senha === "" || cpf_cnpj==="") {
-            alert("Preencha todos os campos!")
-            return
-        } 
-
-        // Integrar com a vossa API
-        let api = await fetch("http://localhost:8081/atualizar?id", {
-            method : "POST",
+    async function EditUser() {
+        let api = await fetch(`http://localhost:8081/user/update/${id}`, {
+            method : "PUT",
             body:JSON.stringify({
                 "name":name,
                 "email":email,
@@ -48,7 +48,7 @@ function AtualizarUser() {
         <div className='page'>
             <div className='card'>
                 <form className='form'>
-                    <h2>Atualizar</h2>
+                    <h2>Cadastra-se</h2>
 
                     <label htmlFor='name'>Nome:</label>
                     <input className='campo' type='text' id='name' name='name' placeholder='Digite seu nome' onChange={(e)=> setNome(e.target.value)}></input>
@@ -62,7 +62,7 @@ function AtualizarUser() {
                     <label htmlFor='cpf_cnpf'>CPF/CNPJ:</label>
                     <input className='campo' type='text' id='cpf_cnpf' name='cpf_cnpf' placeholder='Digite seu CPF/CNPJ' onChange={(e)=> setCpf_cnpj(e.target.value)}></input>
 
-                    <input className='botao' type='button' value="Atualizar" onClick={AtualizarUser}/>
+                    <input className='botao' type='button' value="Cadastrar" onClick={EditUser}/>
                 </form>
             </div>
         </div>
@@ -70,4 +70,3 @@ function AtualizarUser() {
 }
 
 export default AtualizarUser
-

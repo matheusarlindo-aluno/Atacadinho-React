@@ -5,23 +5,21 @@ function FormUser() {
     const [name, setNome] = useState('')
     const [email, setEmail] = useState('')
     const [senha, setPassword] = useState('')
-    const [cpf_cnpj, setCpf_cnpj] = useState('')
 
 
     async function cadastroUser() {
-        if(name === "" || email === "" || senha === "" || cpf_cnpj==="") {
+        if(name === "" || email === "" || senha === "") {
             alert("Preencha todos os campos!")
             return
         } 
 
         // Integrar com a vossa API
-        let api = await fetch("http://localhost:8081/user/save", {
+        let api = await fetch("http://localhost:8081/usuario/cadastrar", {
             method : "POST",
             body:JSON.stringify({
                 "name":name,
                 "email":email,
                 "password":senha,
-                "cpf_cnpj":cpf_cnpj,
                 "is_active":1
             }),
             headers:{
@@ -59,13 +57,11 @@ function FormUser() {
                     <label htmlFor='password'>Senha:</label>
                     <input className='campo' type='password' id='password' name='password' placeholder='Digite sua senha'  onChange={(e)=> setPassword(e.target.value)}></input>
 
-                    <label htmlFor='cpf_cnpf'>CPF/CNPJ:</label>
-                    <input className='campo' type='text' id='cpf_cnpf' name='cpf_cnpf' placeholder='Digite seu CPF/CNPJ' onChange={(e)=> setCpf_cnpj(e.target.value)}></input>
-
                     <input className='botao' type='button' value="Cadastrar" onClick={cadastroUser}/>
                 </form>
             </div>
         </div>
+        
     )
 }
 

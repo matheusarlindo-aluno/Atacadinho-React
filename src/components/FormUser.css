@@ -2,23 +2,25 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    width:100%;
     height: 100vh;;
 }
 
 .card {
     width: 50%;
+    height: 60vh;
     max-width: 450px;
     background-color: white;
     padding: 34px;
     border-radius: 10px;
-    /* box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.3);  */
+    box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.3); 
 }
 
 .form {
     display: flex;
     flex-direction: column;
-    gap: 9px;
+    gap: 1em;
+    margin-top: 1.5em;
 }
 
 .campo {
@@ -32,19 +34,25 @@
 
 .botao {
     padding: 10px;
-    color: #FFF;
-    background-color: rgb(94, 7, 175);
+    color: #000;
+    background-color: rgb(20,228,16);
     border-radius: 15px;
     border: 2px solid #000;
     cursor: pointer;
-    transition: all linear 190ms
+    transition: all linear 190ms;
+    font-weight: 600;
 }
 
 .botao:hover {
     transform: scale(1.04);
-    background-color: rgb(124, 37, 206);
+    background-color: rgb(9, 187, 63);
+    color: #FFF;
 }
 
 label {
     font-weight: 600;
+}
+
+h2 {
+    font-size: 2.5em;
 }

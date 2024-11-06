@@ -36,8 +36,35 @@
     transform: rotate(360deg);
   }
 } */
- 
+
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 h1 {
-  color: #FFF;
+  color: #000;
   text-align: center;
+}
+
+h2 {
+  color:#000;
+  text-align: center;
+}
+
+.botao-cad {
+  background-color: #27ae60;
+  color: white;
+  padding: 10px 20px;
+  border: solid 2px #000;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  align-items:center ;
+  margin: 0 55em 0 55em;
+}
+
+.botao-cad:hover {
+  background-color: #5ab881;
 }
