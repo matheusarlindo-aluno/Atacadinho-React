@@ -1,21 +1,21 @@
 import { useState } from 'react'
-import './FormUser.css'
+import './Atualizar.css'
 
-function FormUser() {
+function AtualizarUser() {
     const [name, setNome] = useState('')
     const [email, setEmail] = useState('')
     const [senha, setPassword] = useState('')
     const [cpf_cnpj, setCpf_cnpj] = useState('')
 
 
-    async function cadastroUser() {
+    async function AtualizarUser() {
         if(name === "" || email === "" || senha === "" || cpf_cnpj==="") {
             alert("Preencha todos os campos!")
             return
         } 
 
         // Integrar com a vossa API
-        let api = await fetch("http://localhost:8081/user/save", {
+        let api = await fetch("http://localhost:8081/atualizar?id", {
             method : "POST",
             body:JSON.stringify({
                 "name":name,
@@ -48,7 +48,7 @@ function FormUser() {
         <div className='page'>
             <div className='card'>
                 <form className='form'>
-                    <h2>Cadastra-se</h2>
+                    <h2>Atualizar</h2>
 
                     <label htmlFor='name'>Nome:</label>
                     <input className='campo' type='text' id='name' name='name' placeholder='Digite seu nome' onChange={(e)=> setNome(e.target.value)}></input>
@@ -62,12 +62,12 @@ function FormUser() {
                     <label htmlFor='cpf_cnpf'>CPF/CNPJ:</label>
                     <input className='campo' type='text' id='cpf_cnpf' name='cpf_cnpf' placeholder='Digite seu CPF/CNPJ' onChange={(e)=> setCpf_cnpj(e.target.value)}></input>
 
-                    <input className='botao' type='button' value="Cadastrar" onClick={cadastroUser}/>
+                    <input className='botao' type='button' value="Atualizar" onClick={AtualizarUser}/>
                 </form>
             </div>
         </div>
     )
 }
 
-export default FormUser
+export default AtualizarUser
 
